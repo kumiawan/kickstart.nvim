@@ -128,9 +128,11 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup {
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link). install lazy here
 
+  -- laravel/blade
+  'jwalton512/vim-blade',
+
   'tpope/vim-sleuth',
   'xiyaowong/transparent.nvim',
-  'jwalton512/vim-blade',
 
   { 'numToStr/Comment.nvim', opts = {} },
 
@@ -532,7 +534,7 @@ require('lazy').setup {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     opts = {
-      ensure_installed = { 'bash', 'c', 'html', 'lua', 'markdown', 'vim', 'vimdoc', 'php', 'phpdoc', 'php_only' },
+      ensure_installed = { 'bash', 'c', 'html', 'lua', 'markdown', 'vim', 'vimdoc', 'php', 'phpdoc', 'php_only', 'dart' },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
@@ -554,6 +556,7 @@ require('lazy').setup {
   require 'kickstart.plugins.undotree',
   require 'kickstart.plugins.colors',
   require 'kickstart.plugins.fugitive',
+  require 'kickstart.plugins.flutter_tools',
   -- require 'kickstart.plugins.indent_line',
 
   -- { import = 'custom.plugins' },
