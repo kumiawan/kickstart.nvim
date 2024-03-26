@@ -1,14 +1,10 @@
 return {
   { -- see: Telescope colorscheme
-    -- 'folke/tokyonight.nvim',
-    'rose-pine/neovim',
-    name = 'rose-pine',
-    priority = 1000, -- Make sure to load this before all the other start plugins.
+    'rebelot/kanagawa.nvim',
+    priority = 1000,
     init = function()
-      vim.cmd.colorscheme 'rose-pine'
-
-      -- You can configure highlights by doing something like:
-      -- vim.cmd.hi 'Comment gui=none'
+      vim.cmd.colorscheme 'kanagawa'
+      vim.cmd.hi 'Comment gui=none'
     end,
   },
 }
