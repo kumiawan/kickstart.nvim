@@ -1,5 +1,11 @@
 # kickstart.nvim
 
+## Laravel +
+enjoy
+## Flutter -
+soon
+
+
 ## Introduction
 
 A starting point for Neovim that is:
