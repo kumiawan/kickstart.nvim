@@ -51,14 +51,14 @@ vim.opt.inccommand = 'split'
 -- [[ Basic Keymaps ]]
 
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
--- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
--- or just use <C-\><C-n> to exit terminal mode
+-- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping or just use <C-\><C-n> to exit terminal mode
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
 -- TIP: Disable arrow keys in normal mode
@@ -132,7 +132,6 @@ require('lazy').setup {
   'jwalton512/vim-blade',
 
   'tpope/vim-sleuth',
-  'xiyaowong/transparent.nvim',
 
   { 'numToStr/Comment.nvim', opts = {} },
 
@@ -140,11 +139,11 @@ require('lazy').setup {
     'lewis6991/gitsigns.nvim',
     opts = {
       signs = {
-        add = { text = '+' },
-        change = { text = '~' },
-        delete = { text = '_' },
+        add = { text = 'A' },
+        change = { text = 'M' },
+        delete = { text = 'D' },
         topdelete = { text = '‾' },
-        changedelete = { text = '~' },
+        changedelete = { text = 'MD' },
       },
     },
   },
@@ -243,10 +242,6 @@ require('lazy').setup {
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
-
-      -- Useful status updates for LSP.
-      -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', opts = {} },
 
       -- `neodev` configures Lua LSP for your Neovim config, runtime and plugins
       -- used for completion, annotations and signatures of Neovim apis
@@ -520,6 +515,7 @@ require('lazy').setup {
       require('mini.indentscope').setup()
       require('mini.move').setup()
       require('mini.pairs').setup()
+      require('mini.notify').setup()
       -- require('mini.visits').setup()
 
       local statusline = require 'mini.statusline'
@@ -534,11 +530,12 @@ require('lazy').setup {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     opts = {
-      ensure_installed = { 'bash', 'c', 'html', 'lua', 'markdown', 'vim', 'vimdoc', 'php', 'phpdoc', 'php_only', 'dart' },
+      ensure_installed = { 'tmux', 'bash', 'c', 'html', 'lua', 'markdown', 'vim', 'vimdoc', 'php', 'phpdoc', 'php_only', 'dart' },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
         enable = true,
+        additional_vim_regex_highlighting = false,
       },
       indent = { enable = true, disable = { 'ruby' } },
     },
@@ -550,14 +547,14 @@ require('lazy').setup {
     end,
   },
 
-  -- PLUGINS
+  -- 100
   -- require 'kickstart.plugins.copilot',
   require 'kickstart.plugins.cloak',
   require 'kickstart.plugins.undotree',
   require 'kickstart.plugins.colors',
   require 'kickstart.plugins.fugitive',
   require 'kickstart.plugins.flutter_tools',
-  -- require 'kickstart.plugins.indent_line',
+  require 'kickstart.plugins.vim-tmux-navigator',
 
   -- { import = 'custom.plugins' },
 }
