@@ -335,14 +335,14 @@ require('lazy').setup {
               completion = {
                 callSnippet = 'Replace',
               },
-              emmet_ls = { 'php', 'blade' },
-              intelephense = { 'php', 'blade' },
-              html = { 'php', 'blade' },
               -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
               diagnostics = { disable = { 'missing-fields' } },
             },
           },
         },
+        emmet_ls = { 'php', 'blade', 'html' },
+        intelephense = { 'php', 'blade' },
+        html = { 'html', 'blade', 'php' },
       }
 
       -- Ensure the servers and tools above are installed
@@ -555,6 +555,7 @@ require('lazy').setup {
   require 'kickstart.plugins.fugitive',
   require 'kickstart.plugins.flutter_tools',
   require 'kickstart.plugins.vim-tmux-navigator',
+  require 'kickstart.plugins.harpoon',
 
   -- { import = 'custom.plugins' },
 }
